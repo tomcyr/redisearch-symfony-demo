@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RecipeController!{% endblock %}
+
+{% block body %}
+    <h1>Recipes</h1>
+    <form method="post">
+        <input type="search" name="search">
+        <input type="submit" value="Search">
+    </form>
+    {% if result %}
+        {% if result.count > 0 %}
+            <h3>Total count: {{ result.count }}</h3>
+
+            <table class="table table-striped">
+                <thead>
+                <th>Title</th>
+                <th>Ingredients</th>
+                <th>Description</th>
+                <th>Preparation time (minutes)</th>
+                <th>Cooking time (minutes)</th>
+                </thead>
+                {% for document in result.documents %}
+                    <tr>
+                        <td>{{ document.title|raw }}</td>
+                        <td>{{ document.ingredients|raw }}</td>
+                        <td>{{ document.description|raw }}</td>
+                        <td>{{ document.prepTimeMin|default('-') }}</td>
+                        <td>{{ document.cookTimeMin|default('-') }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>Sorry, no recipes found :(</p>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}

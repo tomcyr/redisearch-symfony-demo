@@ -1,0 +1,21 @@
+web:
+  build: docker/nginx
+  ports:
+    - "8088:80"
+  links:
+    - php
+  volumes:
+    - ./:/app
+
+php:
+  build: docker/php-fpm
+  volumes:
+    - ./:/app
+  working_dir: /app
+  links:
+    - redis
+
+redis:
+  image: redislabs/redisearch:latest
+  ports:
+    - "6379:6379"

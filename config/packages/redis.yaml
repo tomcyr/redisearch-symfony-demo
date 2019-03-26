@@ -1,0 +1,3 @@
+parameters:
+  redisHost: '%env(resolve:REDIS_HOST)%'
+  redisPort: 6379

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BikeController!{% endblock %}
+
+{% block body %}
+    <h1>Bikes</h1>
+    <form method="post">
+        <input type="search" name="search">
+        <input type="submit" value="Search">
+    </form>
+    {% if result %}
+        {% if result.count > 0 %}
+            <h3>Total count: {{ result.count }}</h3>
+
+            <table class="table table-striped">
+                <thead>
+                <th>Country</th>
+                <th>City</th>
+                <th>Name</th>
+                <th>Number</th>
+                <th>Bikes count</th>
+                <th>Location</th>
+                </thead>
+                {% for document in result.documents %}
+                    <tr>
+                        <td>{{ document.country }}</td>
+                        <td>{{ document.city }}</td>
+                        <td>{{ document.name }}</td>
+                        <td>{{ document.number }}</td>
+                        <td>{{ document.bikeCount }}</td>
+                        <td>{{ document.place }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>Sorry, no bikes found :(</p>
+        {% endif %}
+    {% endif %}
+{% endblock %}
