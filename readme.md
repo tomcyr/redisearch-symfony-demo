@@ -1,5 +1,5 @@
-Symfony RediSearch tutorial
-===========================
+Symfony RediSearch demo
+=======================
 
 This is Symfony4 demo for Full-Text search with RediSearch and redisearch-php.
 
