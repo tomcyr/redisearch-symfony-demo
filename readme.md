@@ -31,3 +31,5 @@ php bin/console app:import-bikes
 - Open url http://symfony.local:8088
 
 Enjoy!
+
+Presentation about RediSearch (Polish) https://docs.google.com/presentation/d/1G-xypthE8QCN0JaUpjRirksyKzN0KSdINflZ_EHRzls
